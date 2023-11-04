@@ -3,6 +3,7 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
 import { app } from "../index.js";
+import { studentDb_collection } from "../schema/StudentSchema.js";
 
 process.env.NODE_ENV='test'
 
@@ -10,6 +11,27 @@ process.env.NODE_ENV='test'
 const expect= chai.expect
 const should=chai.should()
 chai.use(chaiHttp)
+
+// !clean up the database before any test
+
+before((done)=>{
+    studentDb_collection.deleteMany({},(err)=>{
+      console.log(err)  
+    })
+    done()
+
+})
+
+// ? clean up the database after the test
+before((done)=>{
+    studentDb_collection.deleteMany({},(err)=>{
+      console.log(err)  
+    })
+    done()
+
+})
+
+
 
 
 
