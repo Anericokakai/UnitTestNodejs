@@ -15,18 +15,14 @@ chai.use(chaiHttp)
 // !clean up the database before any test
 
 before((done)=>{
-    studentDb_collection.deleteMany({},(err)=>{
-      console.log(err)  
-    })
+    studentDb_collection.deleteMany({})
     done()
 
 })
 
 // ? clean up the database after the test
 before((done)=>{
-    studentDb_collection.deleteMany({},(err)=>{
-      console.log(err)  
-    })
+    studentDb_collection.deleteMany({})
     done()
 
 })
